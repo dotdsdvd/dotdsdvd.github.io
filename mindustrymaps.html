@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mindustry</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">My Blog</header>
+
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+      <h1>Mindustry</h1>
+      <h2>Карти</h2>
+      <p>
+      Mindustry має дуже розвинену систему створення карт. Потужний редактор, велика кількість клітинок довкілля, користувацькі правила та світова логіка дозволяють створити карту у будь якому стилі для будь якого режиму з будь якими механіками та особливостями.
+      </p>
+      <h2>Стилі карт</h2>
+      <p>
+      Карти для mindustry можна створити у багатьох різних стилях завдяки різноманіттю довкілля та інтсрументів редагування.<br>
+      Ось декілька популярних стилів:
+      </p>
+      <h3>Serpulo</h3> Це стиль планети Серпуло, холодної планети яка повністю захоплена інвазивними спорами. На цих картах є багато спор, льоду, чорного піску, і мають природню геометрію.
+      <img src="media/md-screenshots/serpulo.png">
+      <h3>Erekir</h3> Це стиль планети Ерекір, спекотної задушливою планети, на якій відбувається багато вулканічної, геотермальної та тектонічної активності. Ці карти мають бага різноманітних кольорових кам'яних пород, геотермальних джерел, токсичних та лавових джерел і так само мають природню реометрію.
+      <img src="media/md-screenshots/erekir.png">
+      <h3>Ranked</h3> Цей стиль використовується для змагальних pvp карта. Цей стиль вирізняється невеликим розміром карт, обрененою симетрією, а також поєднанням як і природньої, так і технічної геометрії.
+      <img src="media/md-screenshots/ranked.png">
+      <h3>Boxed</h3> Цей стиль походить від старої карти під нахвою Boxfort, звідки і пішла назва стилю. Цей стиль вирізняється технологічною геометрією, ортогональними стінами, чистимим поверхнями, чіткими кордонами між середовищами.
+      <img src="media/md-screenshots/boxed.png">
+      <h3>Sandbox</h3> Карти в стилі пісочниці вирізняється тим, що вони мають дуже велику кількість ресурсів, вільної території, та велику площу піснчної поверхні, по суті перетворюючи звичайний ігровий режим на пісочницю. Цей стиль часто перетинається з Boxed стилем, проте він не обов'язково повинен бути таким.
+      <img src="media/md-screenshots/sandbox.png">
+      <h3>Natural</h3> Природній стиль намагається відтворити природній ландшафт використовуючи реалістичні клітинки та природнью геометрію. Цей стиль може сильно варіюватися залежно від клімату (сніжний, пустельний, помірний, тощо), чи ступенем реалізму (лише природня геометрія, реалістичний ладшафт, використання скель, тощо).
+      <img src="media/md-screenshots/natural.png">
+      <h2>Розмір карт</h2>
+      <p>
+      Карти також можна розрізняти за розміром:
+      <li>Крихітні - до 100 клітинок
+      <img src="media/md-screenshots/tiny.png"></li>
+      <li>Малі - до 300 клітинок
+      <img src="media/md-screenshots/small.png"></li>
+      <li>Середні - до 600 клітинок
+      <img src="media/md-screenshots/medium.png"></li>
+      <li>Великі - до 1000 клітинок
+      <img src="media/md-screenshots/large.png"></li>
+      <li>Величезні - понад 1000 клітинок
+      <img src="media/md-screenshots/save_slot_17.png"></li>
+      </p>
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mindustry.html">Mindustry - ігрові режими</a></li>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+
+
+
+  });
+})();
+</script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
+</html>

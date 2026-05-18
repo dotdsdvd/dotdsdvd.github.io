@@ -1,44 +1,75 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>Мій Особистий Сайт Для відеоігор.</title>
-    <meta name="description" content="Цей сайт я зробив сам для того щоб отримати достатньо балів за виконане завдання">
-    <meta name="keywords" content="мій, особистий, сайт">
-    <meta name="description" lang="en" content="I made this site so that i can get enough point for the task">
-    <meta name="keywords" lang="en" content="my, personal, site">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="refresh" content="30">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-<!--    <meta http-equiv="refresh" content="15; url=https://startpage.com">-->
-  </head>
-  <body bgcolor="#242424">
-    <header>Це мій особистий сайт на тему розробки відеоігор.</header>
-
-    <div id="leftBlock"> Лівий блок сайту </div>
-    <div id="infopage"> Основна інформація на сайті
-        <main>Цей сайт я зробив лише для того щоб отримати достатньо балів за виконане завдання.
-    Я сам обираю що на цьому сайті відноситься до його теми, бо моїм завданням є лише зробити сайт за прикладом.
-        </main>
-
-            <h3>Сторінки на цьому сайті</h3>
-    <ul type="square">
-      <li>Карти сайту</li>
-        <ol type="1"><a href="sitemap.html" title="Карта посилань">Карта посилань</a></ol>
-        <ol type="2"><a href="designermenu.html" title="Дизайнерське меню">Дизайнерське меню</a></ol>
-      <li>Блоги</li>
-        <ol type="1"><a href="blender.html" title="Програма для 3d моделювання blender.">Програма для 3d моделювання blender.</a></ol>
-        <ol type="2"><a href="godot.html" title="Ігровий рушій Godot.">Ігровий рушій Godot.</a></ol>
-        <ol type="3"><a href="vulkan.html" title="Vulkan 3d графіка у відеоіграх.">Vulkan 3d графіка у відеоіграх.</a></ol>
-    </ul>
-    <div class="dws"> <a href="#" class="butt">Кнопка</a></div>
-    </div>
-    <div id="rightBlock"> Правий блок сайту</div>
-    <footer> Нижня частина сайту</footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Blog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">My Blog</header>
 
 
-  </body>
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+    Це мій власний сайт який я розробив для вебтехнологій та вебдизайну.<br>
+    Цей сайт розроблений на тему відеоігор.<br>
+    Ось які блоги можна знайти на цьому сайті:
+    <h2>Ігри у які я граю</h2>
+    <li><a href="mindustry.html">Mindustry - ігрові режими</a></li>
+    <li><a href="mindustrymaps.html">Mindustry - карти</a></li>
+    <li><a href="stardewvalley.html">Stardew Valley - основи</a></li>
+    <li><a href="stardewvalleymods.html">Stardew Valley - моди</a></li>
+    <h2>Інструменти розробки відеоігор</h2>
+    <li><a href="vulkan.html">Vulkan - 3d графіка</a></li>
+    <li><a href="blender.html">Blender - 3d моделювання</a></li>
+    <li><a href="godot.html">Godot - ігровий рушій</a></li>
+    <h2> Інші сторінки</h2>
+    <li><a href="sitemap.html">Карта сайту</a></li>
+    <li><a href="designermenu.html">Дизайнерське меню</a></li>
+    <li><a href="test.html">Тестування</a></li>
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+
+
+
+  });
+})();
+</script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
 </html>

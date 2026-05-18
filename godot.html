@@ -1,21 +1,75 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>Ігровий рушій Godot.</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>Ігровий рушій Godot.</header>
-    <div id="leftBlock"> Лівий блок сайту </div>
-    <div id="infopage">
-    <img src="media/editor-frame.webp" align="left" hspace="5px" width="300" height="200" alt="Знімок програми Godot Editor на сайті godotengine.org">
-    <main>Godot це ігровий рушій з відкритим кодом. Цей рушій є дуже прости у використанні що дозволяє легко його опанувати і розробляти відеоігри самостійно. Я теж хотів опанувати цей рушій, але моя проблема полягає в тому що через те що в унівреситиеті задають занадто багато домашок, у мене зовсім немає часу на те щоб ще й навчатися розробляти відеоігри. А також через те щ у ене в університеті немає дисципліни на тему розробки відеоігор, у мене немає достатньо мотивації аби займатися самостійним начанням. Я дуже хочу навчатися, але не можу змусити себе це зробити.</main>
-    <a href="index.html" title="Повернутись на головну" src="media/menu.png" width="400pt">Повернутись на головну</a>
-    </div>
-    <div id="rightBlock">Правий блок сайту</div>
-    <footer>Нижній блок сайту</footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Godot</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">My Blog</header>
 
-  </body>
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+      <h1>Godot</h1>
+      Godot - це потужний ігровий рушій з відкритим кодом, який за останні роки стає все більш популярним рішенням для інді розробників та невеликих студій завдяки простому дизайну та великій кількості функцій.
+      <h2>Чому обирають Godot</h2>
+      Godot став дуже популярним рушієм завдяки деяким головним особливостям:
+      <li>Відкритість - відкритий код та вільна ліцензія дозволяє будь кому використовувати цей рушій без жодних обмежень, також маючи можливість вносити зміни до коду рушія оптимізуючи його до вимог проекту чи просто покращуючи його</li>
+      <li>Нові функції - godot постійно отримує оновлення кожен раз додаючи нові круті функції і вирішуючи баги та інші проблеми.</li>
+      <li>Легка крива навчання - godot є дуже простим рушієм для створення відеоігор навіть для повних початківців. Це дає можливість будь кому хто хочу створювати ігри легкий інструмент для початку її реалізації</li>
+      <h2>Спільнота та ресурси Godot</h2>
+      Godot має дуже активну спільноту та велику кількість гайдів та туторіалів на тему розробки ігор з цим рушієм. Це дозволяє початківцям легко знайти необхідну інформацію для початку роботи над власними проектами.
+      <h2>2D</h2>
+      Godot є найкращим рушієм для 2д ігор завдяки великій кількості готових функцій та інструментів такі як система освітлення, фізики, карти клітинок, анімацій та інших для легкої реалізації будь яких 2д ігор.
+     <h2>3D</h2>
+     Godot не є найкращим рушієм для 3д ігор, проте з кожним оновленням підтримка та кількість функцій та інструментів 3д розробки покращується. Станом на зараз на godot можна створювати повноцінні 3д ігри завдяки таким функціям як pbr-materials, фізична система, інструменти шейдерів та багатьма іншими функціями.
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blender.html">Blender</a></li>
+    <li><a href="vulkan.html">Vulkan</a></li>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+
+
+
+  });
+})();
+</script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
 </html>

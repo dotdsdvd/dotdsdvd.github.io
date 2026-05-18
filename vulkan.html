@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>Vulkan 3d графіка у відеоіграх.</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>Vulkan 3d графіка у відеоіграх.</header>
-    <div id="leftBlock"> Лівий блок сайту </div>
-    <div id="infopage">
-    <img src="media/ss_fe7066404a704aa20f7c6f251facb7aef2606bda.1920x1080.jpg" align="left" hspace="5px" width="300" height="200" alt="Знімок відеогри Half-Life: Alyx, яка використовує графічне API Vulkan.">
-    <main>Vulkan це графічне API для 3d відеоігор, яке має відкритий код та написане на c++. Це є найбільш популярним графічним апі для відеоігор, та підтримується за замочуванням у багатьох ігровх рушіях. Це графічне апі дуже фективне та працює дуже швидко, якраз через це я хочу його використовувати для розробки відеоігор. Проблема у тому що графічне програмування є дуже складним, і начитися програмувати графіку на Vulkan з нуля, дуже важко особисто для мене, тому я не знаю з чого мені почати. Коли у мене в університеті був вибір між 3d граікою та 3d моделюванням, я обрав 3d графіку думаюч що на цій дисципліні я буду вичати графічне програмування на opengl або vulkan, проте як виявилося, 3д графіка це і є 3д моделювання, в той час як 3д моделювання це теж 3д моделювання, але у cad.</main>
-        <a href="index.html" title="Повернутись на головну" src="media/menu.png" width="400pt">Повернутись на головну</a>
-    </div>
-    <div id="rightBlock">Правий блок сайту</div>
-    <footer>Нижній блок сайту</footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vulkan</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">My Blog</header>
 
-  </body>
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+    <h1>Vulkan</h1>
+    Vulkan це сучасне низькорівневе кросплатформне графічне апі розроблене Khronos Group. Основною властивістю vulkan є низькорівневе апі, що дає розробникам додатків та ігор більший контроль над апаратними ресурсами графічного обладнання, та збільшити продуктивність за рахунок відсутності проміжних абстракцій.
+    <h2>Ефективність</h2>
+    Надаючи можливість майже прямої роботи з обладнанням, програми здатні отримати значно більшу продуктивність за рахунок власної реалізації конкретних елементів, зменшуючи роботу драйвера, та уникаючи абстракцій.
+    <h2>Багатопотоковість</h2> Vulkan призначене як графічне апі для графічних процесорів, які збудовані на архітектурі паралельних обчислень. Можливість обробляти величезну кількість потоків паралельно дозволяє легко зібльшувати продуктивність обчислень збільшуючи кількість ядер.
+    <h2>Кросплатформність</h2> Vulkan є відкритим стандартом що дозволяє використовувати його на майже будь якому сучасному обладнанні та операційних системах, включаючи відеокарти Nvidia, Amd Radeon, Intel arc, Snapdragon adreno, тощо, та на платформах Windows, Linux, Android, консолях Xbox, PlayStation, Nintendo Switch.
+    <h2>Гнучкість</h2> Vulkan підходить не лише для відеоігор та професійної графіки, але також для багатопоточних паралельних обчислень на графічних процесорах, як майнінг криптовалют чи симуляції аі.
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blender.html">Blender</a></li>
+    <li><a href="godot.html">Godot</a></li>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+
+
+
+  });
+})();
+</script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
 </html>

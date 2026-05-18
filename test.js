@@ -12,8 +12,6 @@ function checkRes(test){
     if (test.question4[1].checked) {
         result++;
     }
-    const numberInput = document.getElementById('question5');
-    const valueAsNumber = numberInput.valueAsNumber; // Returns a number or NaN
     if (document.getElementById('amount').valueAsNumber == 8) {
         result++;
     }

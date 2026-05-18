@@ -1,22 +1,80 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>Програма для 3d моделювання blender.</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>Програма для 3d моделювання blender.</header>
-    <div id="leftBlock"> Лівий блок сайту </div>
-    <div id="infopage">
-    <img src="media/blender_render-1280x720.jpg" align="left" hspace="5px" width="300" height="200" alt="Знімок програми Blender на сайті blender.org">
-    <main>Blender це програма для 3d моделювання яка використовується для створення моделей для відеоігор. Я нещодавно почав використовувати цю програму щоб навчитися самостійно створювати власні моделі які я міг би продавати або використовувати у власній грі яку я теж хотів би створити. Ця програма є дуже легкою у використанні але так як я не маю досвіду у її використанні, та й 3d моделюванні взагалі, у мене погвно виходить створювати якісні 3d моделі, але з кожним разом у мене виходить трохи краще. У мене також є вибіркова дисципліна яка називається "3d графіка", на якій мені дають завдання для моделювання у програмі blender, що дозволяє мені не тільки навчатися використовувати цю програму, а ще й отримувати бали за використанні завдання.</main>
-    <a href="blendervideo.html" title="Переглянути відео на тему Blender" >Переглянути відео на тему Blender</a><br>
-    <a href="index.html" title="Повернутись на головну" src="media/menu.png" width="400pt">Повернутись на головну</a>
-    </div>
-    <div id="rightBlock">Правий</div>
-        <footer> Нижня частина сайту</footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Blender</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">My Blog</header>
 
-  </body>
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+      <h1>Blender</h1>
+      Blender - це вільне програмне забезпечення для роботи з 3d графікою. Ця програма має дуже багато функцій, від моделювання і текстурування, до рендерінгу і анімацій, і безлічі інших можливостей.
+      <h2>Основні функції</h2>
+      <li>Моделювання - створення 3д моделей та їхнє редагування</li>
+      <li>текстурування - створення та накладання текстур на 3д моделі</li>
+      <li>Рендерінг - створення високоякісних зображень чи відео використовуючи просунуту графіку на основі фізичної симуляції світла</li>
+      <li>Фізичні Симуляції - симуляція різноматіних фізичних процесів, таких як дим, рідини, тканина, руйнування, тощо</li>
+      <li>Анімації - створення анімацій до створених моделей</li>
+      <li>Редагування відео - редагування відео рендерінгу чи анімацій</li>
+      <h2>Інтерфейс</h2>
+      Інтерфейс blender є доволів складним у якому важко розібратися новачкам, проте він є достатньо гнучким та ефективним якщо у ньому розібратися. Інтерфейс є добре розміщеним та містить всі потрібні функції на своєму місці. Для початківців рекомендовано розібратися у головних функціях редактора та інтерфейсу, і вже потім розібратися у решті функцій програми.
+      <h2>Спільнота та ресурси</h2>
+      Будучи вільною та найпопулярнішою програмою для моделювання, blender має дуже велику спільноту та кількість ресурсів, зокрема безліч відео курсів на youtube, форуми та сайти з гайдами та туторіалами, та багато сайтів з моделями та текстурами. Blender Foundation також проводить освітні ініціативи й випускає навчальні проекти.
+      <h2>Застосування</h2>
+      Blender застосовують всюди де використовується 3d графіка. Головним призначенням blender є робота з моделями та текстурами для відеоігор. Також попілярним застосуванням blender є 3д анімації та анімаційні фільми. Blender є популярним середовищем для архітектурного та інтер'єрного дизайну.
+      <h2>Недоліки</h2>
+      Blender також має і недоліки. Головним недоліком blender є крива навчання. Blender є дуже складною програмою для повноцінного опанування, особливо на початку.<br>
+      Також великим недоліком blender є великі системні вимоги. Blender потребує потужного обладнання, та не буде працювати на слабких комп'ютерах, чи бюджетних ноутбуках з інтергованою графікою.
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="vulkan.html">Vulkan</a></li>
+    <li><a href="godot.html">Godot</a></li>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+
+
+
+  });
+})();
+</script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
 </html>
