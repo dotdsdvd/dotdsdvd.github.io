@@ -27,6 +27,12 @@ body{
   gap:var(--gap);
   padding:0 16px;
 }
+ul {
+  list-style-position: outside;
+  padding-left: 40px; /* increase until bullets align with text */
+}
+ul { display: content; padding-left: 40px; list-style-position: outside; }
+
 
 /* Responsive */
 @media (max-width:900px){

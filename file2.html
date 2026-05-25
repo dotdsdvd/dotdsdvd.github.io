@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Blog</title>
+  <title>Hypotenuse Calculator</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style2.css">
   <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">My Blog</header>
+  <header class="site-header">Hypotenuse Calculator</header>
 
 
   <main id="infopage" class="layout">
@@ -16,28 +16,13 @@
     <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
 
     <article class="col content">
-    Це мій власний сайт який я розробив для вебтехнологій та вебдизайну.<br>
-    Цей сайт розроблений на тему відеоігор.<br>
-    Ось які блоги можна знайти на цьому сайті:
-    <h2>Ігри у які я граю</h2>
-    <ul>
-    <li><a href="mindustry.html">Mindustry - ігрові режими</a></li>
-    <li><a href="mindustrymaps.html">Mindustry - карти</a></li>
-    <li><a href="stardewvalley.html">Stardew Valley - основи</a></li>
-    <li><a href="stardewvalleymods.html">Stardew Valley - моди</a></li>
-    </ul>
-    <h2>Інструменти розробки відеоігор</h2>
-    <ul>
-    <li><a href="vulkan.html">Vulkan - 3d графіка</a></li>
-    <li><a href="blender.html">Blender - 3d моделювання</a></li>
-    <li><a href="godot.html">Godot - ігровий рушій</a></li>
-    </ul>
-    <h2> Інші сторінки</h2>
-    <ul>
-    <li><a href="sitemap.html">Карта сайту</a></li>
-    <li><a href="designermenu.html">Дизайнерське меню</a></li>
-    <li><a href="test.html">Тестування</a></li>
-    </ul>
+    <h2>Калькулятор Гіпотенузи</h2>
+    Введіть довжину катетів:<br>
+    1. <input type="number" id="k1" required><br>
+    2. <input type="number" id="k2" required><br>
+    <input type="button" value="Обчислити" onclick="calc()">
+    <hr>
+    <div id="output" class="result" aria-live="polite"></div>
     </article>
 
     <aside class="col sidebar"><nav id="sitemap">
@@ -73,6 +58,8 @@ toc.appendChild(wrap);
   });
 })();
 </script>
+<script src="hcc.js"></script>
+
 
 
   <footer class="site-footer">Bottom of the page</footer>

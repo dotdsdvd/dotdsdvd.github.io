@@ -1,40 +1,151 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Тестування на тему сайту</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-    <script src="test.js"></script>
-  </head>
-  <body>
-    <div id="leftBlock"> Лівий блок сайту </div>
-    <div id="infopage">
-        Головний вміст.
-        <form method="post" name="test">
-<p>1. Навіщо ви відвідуєте цей сайт?
-<br><input type="radio" name="question1" id="a11" value="Бо я хочу">Бо я хочу
-<br><input type="radio" name="question1" id="a12" value="Бо мені треба">Бо мені треба
-</p>
-<p>2. Чи розумієте ви те що я обрав не ту тему яку мені хотілось би розробляти, але через те що його треба продовжувати на одному, проекті, цей сайт є тим що я його сторив?
-<br><input type="radio" name="question2" id="a21" value="Так">Так
-<br><input type="radio" name="question2" id="a22" value="Ні">Ні
-</p>
-<p>3. Чи розумієте ви що я сам не розбираюся у темі на яку створено сайт?
-<br><input type="radio" name="question3" id="a31" value="Так">Так
-<br><input type="radio" name="question3" id="a32" value="Ні">Ні
-</p>
-<p>4. Чи відвідали б ви цей сайт знову за власним бажанням?
-<br><input type="radio" name="question4" id="a41" value="Так">Так
-<br><input type="radio" name="question4" id="a42" value="Ні">Ні
-</p>
-<p>5. В разі якщо ви були уважним читачем сайту, скільки сторінок має цей сайт?
-<p>Введіть число <input type="number" name="question5" id="amount"></p>
-</p>
-<input name="check" onclick="checkRes(this.form)" type="button" value="Розрахувати бал">
-<br><textarea name="display" rows="5" cols="50"> </textarea>
-</form>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Website Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">Website Test</header>
+
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+
+        <form id="testForm">
+    <div class="question">
+      <p>1. Скільки вбудованих ігрових режимів має Mindustry</p>
+      <label><input type="radio" name="q1" value="3">3</label><br>
+      <label><input type="radio" name="q1" value="4">4</label><br>
+      <label><input type="radio" name="q1" value="5">5</label><br>
+      <label><input type="radio" name="q1" value="6">Більше за 5</label><br>
+
     </div>
-    <div id="rightBlock">Правий блок сайту</div>
-  </body>
+
+    <div class="question">
+      <p>2. Який набільш популярний контентний мод до гри Stardew Valley</p>
+      <label><input type="radio" name="q2" value="a">Smapi</label><br>
+      <label><input type="radio" name="q2" value="a">Content Patcher</label><br>
+      <label><input type="radio" name="q2" value="c">Stardew Valley Expanded</label><br>
+      <label><input type="radio" name="q2" value="d">Automate</label>
+    </div>
+
+    <div class="question">
+      <p>3. Які Функції має Blender</p>
+      <label><input type="checkbox" name="q3" value="a">Моделювання</label><br>
+      <label><input type="checkbox" name="q3" value="b">Рендеринг</label><br>
+      <label><input type="checkbox" name="q3" value="c">Редагування відео</label><br>
+      <label><input type="checkbox" name="q3" value="d">Робота зі звуком</label>
+    </div>
+
+    <div class="question">
+      <p>4. Які основні переваги Godot над іншими рушіями</p>
+      <label><input type="checkbox" name="q4" value="a">Простота використання</label><br>
+      <label><input type="checkbox" name="q4" value="b">Більша продуктивність</label><br>
+      <label><input type="checkbox" name="q4" value="c">Більше функціоналу</label><br>
+      <label><input type="checkbox" name="q4" value="d">Краща графіка</label>
+    </div>
+
+    <div class="question">
+      <p>5. Для чого використовується графічне API Vulkan</p>
+      <label><input type="checkbox" name="q5" value="a">3D Графіка</label><br>
+      <label><input type="checkbox" name="q5" value="b">АІ обчислення</label><br>
+      <label><input type="checkbox" name="q5" value="c">Майнінг криптовалют</label><br>
+      <label><input type="checkbox" name="q5" value="d">Багатопотокова програмна логіка</label><br>
+    </div>
+    <button type="submit">Submit</button>
+        </form>
+
+      <div id="output" class="result" aria-live="polite" style="display:none;"></div>
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4'); // choose selectors
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+    // const link = document.createElement('a');
+
+        const link = document.createElement('a');
+// ... set href/text/className as before
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+  });
+})();
+</script>
+<script>
+    document.getElementById('testForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      let score = 0;
+      const total = 5;
+
+      // Q1: radio exact match
+      const q1 = form.elements['q1'].value;
+      if (q1 === '4') score++;
+
+      // Q2: radio exact match
+      const q2 = form.elements['q2'].value;
+      if (q2 === 'c') score++;
+
+      // Q3: checkboxes (correct: a and b, not c)
+      const q3Nodes = form.querySelectorAll('input[name="q3"]:checked');
+      const selectedQ3 = Array.from(q3Nodes).map(n => n.value).sort();
+      const correctQ3 = ['a','b','c'];
+      if (selectedQ3.length === correctQ3.length && selectedQ3.every((v,i) => v === correctQ3[i])) score++;
+
+      // Q4: text (case-insensitive match for "Paris")
+      const q4Nodes = form.querySelectorAll('input[name="q4"]:checked');
+      const selectedQ4 = Array.from(q4Nodes).map(n => n.value).sort();
+      const correctQ4 = ['a','b'];
+      if (selectedQ4.length === correctQ4.length && selectedQ4.every((v,i) => v === correctQ4[i])) score++;
+
+      // Q5: radio (true)
+      const q5Nodes = form.querySelectorAll('input[name="q5"]:checked');
+      const selectedQ5 = Array.from(q5Nodes).map(n => n.value).sort();
+      const correctQ5 = ['a','b','c'];
+      if (selectedQ5.length === correctQ5.length && selectedQ5.every((v,i) => v === correctQ5[i])) score++;
+
+      // Provide feedback
+      const pct = Math.round((score / total) * 100);
+      const output = document.getElementById('output');
+      output.style.display = 'block';
+      output.innerHTML = '<strong>Score:</strong> ' + score + ' / ' + total +
+                         ' (' + pct + '%)';
+
+      // Optional: give brief feedback message
+      let msg = '';
+      if (pct === 100) msg = ' — Perfect!';
+      else if (pct >= 80) msg = ' — Great job!';
+      else if (pct >= 50) msg = ' — Not bad, review the missed answers.';
+      else msg = ' — Keep practicing.';
+      output.innerHTML += msg;
+    });
+  </script>
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
 </html>

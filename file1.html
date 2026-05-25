@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Blog</title>
+  <title>Interactive Survey</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style2.css">
   <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">My Blog</header>
+  <header class="site-header">Interactive Survey</header>
 
 
   <main id="infopage" class="layout">
@@ -16,28 +16,7 @@
     <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
 
     <article class="col content">
-    Це мій власний сайт який я розробив для вебтехнологій та вебдизайну.<br>
-    Цей сайт розроблений на тему відеоігор.<br>
-    Ось які блоги можна знайти на цьому сайті:
-    <h2>Ігри у які я граю</h2>
-    <ul>
-    <li><a href="mindustry.html">Mindustry - ігрові режими</a></li>
-    <li><a href="mindustrymaps.html">Mindustry - карти</a></li>
-    <li><a href="stardewvalley.html">Stardew Valley - основи</a></li>
-    <li><a href="stardewvalleymods.html">Stardew Valley - моди</a></li>
-    </ul>
-    <h2>Інструменти розробки відеоігор</h2>
-    <ul>
-    <li><a href="vulkan.html">Vulkan - 3d графіка</a></li>
-    <li><a href="blender.html">Blender - 3d моделювання</a></li>
-    <li><a href="godot.html">Godot - ігровий рушій</a></li>
-    </ul>
-    <h2> Інші сторінки</h2>
-    <ul>
-    <li><a href="sitemap.html">Карта сайту</a></li>
-    <li><a href="designermenu.html">Дизайнерське меню</a></li>
-    <li><a href="test.html">Тестування</a></li>
-    </ul>
+    <div id="output" class="result" aria-live="polite"></div>
     </article>
 
     <aside class="col sidebar"><nav id="sitemap">
@@ -72,6 +51,20 @@ toc.appendChild(wrap);
 
   });
 })();
+</script>
+<script>
+    var n1 = window.prompt("Введіть своє ім'я", "Наприклад - Іван");
+    var n2 = window.prompt("Введіть своє прізвище", "Наприклад - Іваненко");
+    var n3 = window.prompt("Введіть своє по батькові (не обов'язково)", "Наприклад Іванович");
+    const output = document.getElementById('output');
+    let msg = '';
+    if (n1 == null || n2 == null) {
+        msg = 'Дія була скасована';
+        output.textContent += msg;
+    } else {
+        msg = 'Привіт ' + n1 + ' ' + n2 + ' ' + (n3 == null ? ' ' : n3) + '! Радий тебе бачити!';
+        output.textContent += msg;
+    }
 </script>
 
 
