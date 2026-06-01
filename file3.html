@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Survey</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">Interactive Survey</header>
+
+
+  <main id="infopage" class="layout">
+
+    <aside id="leftBlock" class="col sidebar"><nav id="toc"></nav></aside>
+
+    <article class="col content">
+    <form id="form" action="file3.html" method="GET" autocomplete="on">
+    <h2>Поля з можливим написанням даних</h2>
+    Текстове поле: <input type="text" maxlength="5" spellcheck="true" name="myname"><br>
+    Поле паполь: <input type="password" readonly size="50" namr="password"><br>
+    Поле Email: <input type="email" name="email"><br>
+    Поле URL: <input type="url" name="url"><br>
+    Поле пошуку: <input type="seacrh" name="search"><br>
+    Поле Телефону: <input type="tel" placeholder="+380-00-00-00-000" required name="tel"><br>
+    <h2> Поля які не потребують вводу тексту</h2>
+    Check1: <input type="checkbox" name="ch1" checked><br>
+    Check2: <input type="checkbox" name="ch2"><br>
+    Check3: <input type="checkbox" name="ch3" checked><br>
+    Radio1: <input type="radio" name="select1" value="1"><br>
+    Radio2: <input type="radio" name="select2" value="2" checked><br>
+    Radio3: <input type="radio" name="select3" value="3"><br>
+
+    Color: <input type="color" name="color"><br>
+    File: <input type="file" name="file"><br>
+    Hidden Field: <input type="hidden" name="hidden"><br>
+    Number field: <input type="number" name="number"><br>
+    Date w/o time: <input type="date" name="date"><br>
+    Date w/ time: <input type="datetime" name="datetime"><br>
+    Range: <input type="range" name="range"><br>
+    Control Date Input: <input type="datetime-local" name="datetime-local"><br>
+    Month: <input type="month"><br>
+    Time: <input type="time" name="time"><br>
+    Week: <input type="week" name="week"><br>
+    <h2> Кнопки </h2>
+    Button: <input type="button" value="OK" name="button"><br>
+    Graphical Button: <input type="image" name="image"><br>
+    Clear: <input type="reset" name="reset"><br>
+    Submit: <input type="submit" name="submit"><br>
+
+    Save file: <input type="button" id="submit">
+    </form>
+    <div id="output" class="result" aria-live="polite" style="display:none;"></div>
+    </article>
+
+    <aside class="col sidebar"><nav id="sitemap">
+  <ul>
+  </ul>
+</nav>
+</aside>
+  </main>
+    <script>
+(function(){
+  const content = document.querySelector('#infopage');
+  const toc = document.querySelector('#toc');
+  if(!content || !toc) return;
+  const headings = content.querySelectorAll('h1,h2,h3,h4');
+  headings.forEach((h, i) => {
+    if(!h.id) h.id = 'toc-' + (h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'') || i);
+        const link = document.createElement('a');
+const wrap = document.createElement('div');
+wrap.className = 'toc-item';
+wrap.appendChild(link);
+toc.appendChild(wrap);
+
+    link.href = '#' + h.id;
+    link.textContent = h.textContent;
+    link.className = 'toc-link toc-' + h.tagName.toLowerCase();
+    toc.appendChild(link);
+  });
+})();
+
+document.getElementById("submit").addEventListener("click", () => {
+  const form = document.getElementById("form");
+  const formData = new FormData(form);
+const obj = Object.fromEntries(formData.entries());
+const blob = new Blob([JSON.stringify(obj, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'form.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+</script>
+
+
+
+  <footer class="site-footer">Bottom of the page</footer>
+
+</body>
+</html>
