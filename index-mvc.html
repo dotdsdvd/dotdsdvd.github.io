@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Особиста сторінка викладача університету: курси, консультації, оголошення та наукова діяльність."
+  >
+  <title>Юлія Ульяновська — сторінка викладача</title>
+
+  <style>
+    :root {
+      --primary: #174a72;
+      --primary-dark: #103653;
+      --accent: #e6f1f8;
+      --text: #202a33;
+      --muted: #52616d;
+      --border: #d7e0e7;
+      --background: #f4f7f9;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    a:focus-visible {
+      outline: 3px solid #e6a700;
+      outline-offset: 3px;
+    }
+
+    .site-header {
+      color: var(--white);
+      background: var(--primary);
+    }
+
+    .header-inner,
+    main,
+    .footer-inner {
+      width: min(100% - 32px, 1000px);
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      padding: 20px 0 0;
+    }
+
+    .university-name {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      padding: 12px 0;
+      border-top: 1px solid rgb(255 255 255 / 30%);
+    }
+
+    .main-nav a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .main-nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding-block: 28px 44px;
+    }
+
+    .profile,
+    .content-section {
+      margin-bottom: 22px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgb(20 50 70 / 5%);
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .profile-photo {
+      display: grid;
+      width: 150px;
+      aspect-ratio: 1;
+      place-items: center;
+      overflow: hidden;
+      color: var(--primary-dark);
+      background: var(--accent);
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--primary-dark);
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--primary-dark);
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .position,
+    .department {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      margin-block: 4px;
+    }
+
+    .notice {
+      border-left: 5px solid #d68a00;
+    }
+
+    .notice-list,
+    .publication-list {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .notice-list li,
+    .publication-list li {
+      margin-bottom: 8px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .course-card {
+      padding: 18px;
+      background: #fbfcfd;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .course-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 12px;
+    }
+
+    .updated {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-footer {
+      padding: 20px 0;
+      color: var(--white);
+      background: var(--primary-dark);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      justify-content: space-between;
+    }
+
+    .site-footer a {
+      color: var(--white);
+    }
+
+    @media (max-width: 620px) {
+      .profile {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .profile-photo {
+        width: 120px;
+      }
+
+      .course-list {
+        grid-template-columns: 1fr;
+      }
+
+      .profile,
+      .content-section {
+        padding: 18px;
+      }
+
+      .main-nav {
+        gap: 8px 14px;
+      }
+    }
+
+    .profile,
+.course-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #d7e0e7;
+  border-radius: 10px;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.updated {
+  color: #52616d;
+  font-size: 0.9rem;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="university-name">Унівеситет Митної Справи Та Фінансів</p>
+
+      <nav class="main-nav" aria-label="Основна навігація">
+        <a href="#about">Про викладача</a>
+        <a href="#courses">Курси</a>
+        <a href="#consultations">Консультації</a>
+        <a href="#research">Наукова діяльність</a>
+        <a href="#announcements">Оголошення</a>
+      </nav>
+    </div>
+  </header>
+
+    <main id="app"></main>
+<script src="app.js"></script>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Унівеситет Митної Справи Та Фінансів </span>
+      <a href="https://umsf.dp.ua/struktura/2021-03-09-08-35-26/kafedra-kompiuternykh-nauk-ta-inzhenerii-prohramnoho-zabezpechennia">Сайт кафедри</a>
+    </div>
+  </footer>
+</body>
+</html>

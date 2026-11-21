@@ -1,0 +1,122 @@
+Document
+└── html lang="uk"
+    ├── head
+    │   ├── meta charset="UTF-8"
+    │   ├── meta name="viewport"
+    │   ├── meta name="description"
+    │   ├── title
+    │   │   └── "Ім’я..."
+    │   └── style
+    │       └── CSS-правила...
+    │
+    └── body
+        ├── header.site-header
+        │   └── div.header-inner
+        │       ├── p.university-name
+        │       │   └── "Назва..."
+        │       └── nav.main-nav
+        │           ├── a[href="#about"]
+        │           │   └── "Про..."
+        │           ├── a[href="#courses"]
+        │           │   └── "Курси"
+        │           ├── a[href="#consultations"]
+        │           │   └── "Консультації"
+        │           ├── a[href="#research"]
+        │           │   └── "Наукова..."
+        │           └── a[href="#announcements"]
+        │               └── "Оголошення"
+        │
+        ├── main
+        │   ├── section#about.profile
+        │   │   ├── div.profile-photo
+        │   │   │   └── "Фото..."
+        │   │   └── div
+        │   │       ├── h1#page-title
+        │   │       │   └── "Ім’я..."
+        │   │       ├── p.position
+        │   │       │   └── "Посада..."
+        │   │       ├── p.department
+        │   │       │   └── "Кафедра..."
+        │   │       └── ul.contact-list
+        │   │           ├── li
+        │   │           │   ├── "Електронна..."
+        │   │           │   └── a[href="mailto:..."]
+        │   │           │       └── "name@..."
+        │   │           ├── li
+        │   │           │   └── "Кабінет..."
+        │   │           └── li
+        │   │               └── "Години..."
+        │   │
+        │   ├── section#announcements.content-section.notice
+        │   │   ├── h2
+        │   │   │   └── "Оголошення"
+        │   │   └── ul.notice-list
+        │   │       ├── li
+        │   │       │   ├── span.date
+        │   │       │   │   └── "[Дата]"
+        │   │       │   └── "Зміна..."
+        │   │       └── li
+        │   │           ├── span.date
+        │   │           │   └── "[Дата]"
+        │   │           └── "Дедлайн..."
+        │   │
+        │   ├── section#courses.content-section
+        │   │   ├── h2
+        │   │   │   └── "Навчальні..."
+        │   │   └── div.course-list
+        │   │       ├── article.course-card
+        │   │       │   ├── h3
+        │   │       │   │   └── "Назва..."
+        │   │       │   ├── p
+        │   │       │   │   └── "Короткий..."
+        │   │       │   ├── div.course-links
+        │   │       │   │   ├── a → "Програма..."
+        │   │       │   │   ├── a → "Навчальні..."
+        │   │       │   │   └── a → "Завдання"
+        │   │       │   └── p.updated
+        │   │       │       └── "Оновлено..."
+        │   │       └── article.course-card
+        │   │           ├── h3 → "Назва..."
+        │   │           ├── p → "Короткий..."
+        │   │           ├── div.course-links
+        │   │           │   ├── a → "Програма..."
+        │   │           │   ├── a → "Навчальні..."
+        │   │           │   └── a → "Завдання"
+        │   │           └── p.updated → "Оновлено..."
+        │   │
+        │   ├── section#consultations.content-section
+        │   │   ├── h2 → "Консультації"
+        │   │   ├── p
+        │   │   │   ├── strong → "Час:"
+        │   │   │   └── "[день..."
+        │   │   ├── p
+        │   │   │   ├── strong → "Місце..."
+        │   │   │   └── "[кабінет..."
+        │   │   └── p
+        │   │       └── a → "Посилання..."
+        │   │
+        │   ├── section#research.content-section
+        │   │   ├── h2 → "Наукова..."
+        │   │   ├── p
+        │   │   │   ├── strong → "Напрями..."
+        │   │   │   └── "[перелік..."
+        │   │   ├── h3 → "Вибрані..."
+        │   │   ├── ul.publication-list
+        │   │   │   ├── li
+        │   │   │   │   ├── a → "Назва..."
+        │   │   │   │   └── "— [рік]."
+        │   │   │   └── li
+        │   │   │       ├── a → "Назва..."
+        │   │   │       └── "— [рік]."
+        │   │   └── p
+        │   │       └── a → "Профіль..."
+        │   │
+        │   └── section.content-section
+        │       ├── h2 → "Про..."
+        │       └── p → "Коротка..."
+        │
+        └── footer.site-footer
+            └── div.footer-inner
+                ├── span → "©..."
+                ├── a → "Сайт..."
+                └── a → "Політика..."
